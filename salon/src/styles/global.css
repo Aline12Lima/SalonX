@@ -1,0 +1,19 @@
+/* 1. Importação ÚNICA das Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700&family=Imperial+Script&family=Inter:wght@400;600;700&display=swap');
+
+/* 2. Carrega o Tailwind v4 */
+@import "tailwindcss";
+
+/* 3. Configuração do Design System (Theme) */
+@theme {
+    /* Definição de Cores - Gera automaticamente bg-primary, text-primary, etc */
+    --color-primary: #6B0606;
+    --color-secondary: #DFBFA8;
+    --color-footer: #F3E2D5;
+    --color-white: #FFFFFF;
+
+    /* Definição de Fontes - Gera font-inet, font-abhaya, etc */
+    --font-inet: "Inter", sans-serif;
+    --font-abhaya: "Abhaya Libre", serif;
+    --font-imperial: "Imperial Script", cursive;
+}
