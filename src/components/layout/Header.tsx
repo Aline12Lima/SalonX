@@ -22,6 +22,7 @@ export default function Header() {
     { name: "Home", path: "/" },
     { name: "Serviços", path: "/services" },
     { name: "Sobre", path: "/about" },
+    { name: "Contato", path: "/contact" },
   ];
 
   return (
@@ -59,6 +60,16 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
+          <Link
+            to="/contact"
+            className={`px-6 py-2 rounded-sm font-inet uppercase tracking-widest text-sm transition-all ${
+              scrolled
+                ? "bg-white text-primary hover:bg-gray-100"
+                : "bg-primary text-white hover:bg-opacity-90"
+            }`}
+          >
+            Agendar
+          </Link>
         </nav>
 
         {/* BOTÃO MOBILE */}
