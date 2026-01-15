@@ -36,10 +36,16 @@ export function Header() {
       <div
         className={`flex items-center gap-[18px] transition-colors ${iconColor}`}
       >
-        <a href="#" className="hover:opacity-80 transition-opacity">
+        <a
+          href="https://www.facebook.com/"
+          className="hover:opacity-80 transition-opacity"
+        >
           <Facebook size={24} />
         </a>
-        <a href="#" className="hover:opacity-80 transition-opacity">
+        <a
+          href="https://www.instagram.com/"
+          className="hover:opacity-80 transition-opacity"
+        >
           <Instagram size={24} />
         </a>
       </div>
