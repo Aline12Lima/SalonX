@@ -44,9 +44,8 @@ export default function Footer() {
 
           {/* BLOCO TEXTO (418 x 57) */}
           <p className="font-inet text-primary/80 text-sm md:text-base leading-relaxed mb-6 max-w-[418px]">
-            Est tortor egestas sed feugiat elementum. Viverra nulla amet a
-            ultrices massa dui. Tortor est purus morbi vitae arcu suspendisse
-            amet.
+            Somos referencia em beleza e bem-estar, oferecendo serviços
+            personalizados para realçar sua beleza natural.
           </p>
 
           {/* BLOCO REDES SOCIAIS (116 x 20) */}
