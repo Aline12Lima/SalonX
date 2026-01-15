@@ -3,7 +3,7 @@ import { instagramPosts } from "../utils/insta";
 
 export default function InstagramFeed() {
   return (
-    <section className="w-full bg-white pt-20 pb-0 flex flex-col items-center">
+    <section className="w-full bg-white pt-0 pb-0 flex flex-col items-center">
       {/* 1. CABEÇALHO */}
       <div className="text-center mb-12 px-4">
         <h2 className="font-abhaya text-primary text-4xl md:text-5xl font-bold mb-4">
