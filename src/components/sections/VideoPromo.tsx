@@ -17,10 +17,6 @@ export default function VideoPromo() {
           playsInline
           src={VideoPro}
         />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 mix-blend-overlay"></div>
-
-        <div className="absolute inset-0 flex items-center justify-center"></div>
       </div>
 
       {/* =================================================
