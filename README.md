@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# Beauty Salon - Excelência em Estética
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de Landing Page premium desenvolvido para o setor de beleza e bem-estar. O foco principal do projeto foi unir um design sofisticado com conceitos avançados de Engenharia de Software, como performance crítica, acessibilidade e manutenibilidade.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias e Ferramentas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18** (Vite)
+- **TypeScript** (Tipagem estática para robustez do código)
+- **Tailwind CSS** (Estilização utilitária e responsiva)
+- **Lucide React** (Pacote de ícones leves)
+- **React Router Dom** (Gerenciamento de rotas SPA)
+- **Vercel** (Deployment e CI/CD)
 
-## React Compiler
+## 🛠️ Engenharia e Performance
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Como estudante de Engenharia de Software, apliquei práticas para garantir um carregamento ultra-rápido:
 
-## Expanding the ESLint configuration
+- **Otimização de Imagens:** Uso de formatos de próxima geração (WebP) e técnicas de compressão.
+- **Componentização:** Arquitetura baseada em componentes reutilizáveis e memorização com `React.memo` para evitar re-renderizações desnecessárias.
+- **Lazy Loading:** Carregamento tardio de imagens e seções pesadas (como o Instagram Feed) para melhorar o LCP (Largest Contentful Paint).
+- **Responsive Design:** Interface totalmente adaptada para dispositivos móveis, tablets e desktops.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Estrutura do Projeto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+ ├── assets/          # Imagens, ícones (otimizados) e vídeos
+ ├── components/      # Componentes de UI e Layout (Header, Footer)
+ ├── sections/        # Seções principais da Home (Hero, Testimonials, Insta)
+ ├── pages/           # Páginas da aplicação (Home, Services, Contact)
+ └── utils/           # Mock de dados e configurações constantes
 ```
