@@ -6,7 +6,7 @@ export default function Contact() {
       {/* =========================================================
           1. MAPA DO GOOGLE (Corrigido)
       ========================================================= */}
-      <section className="w-full h-[50vh] min-h-[400px] mt-[80px] relative shadow-lg z-0">
+      <section className="w-full h-[50vh] min-h-[300px] mt-[32px] relative shadow-lg z-0">
         <iframe
           title="Localização Beauty Salon"
           // AQUI ESTAVA O ERRO: Coloque APENAS o link, não a tag <iframe> inteira

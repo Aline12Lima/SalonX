@@ -5,7 +5,7 @@ export function Hero() {
   return (
     // ALTERAÇÃO: 'h-auto' no mobile para colapsar o espaço branco. 'md:h-[95vh]' no desktop.
     // 'mt-20' fixo para dar espaço ao Header, removendo o conflito de margens.
-    <section className="h-auto md:h-[95vh] w-full flex flex-col bg-white pt-24 md:pt-[120px]">
+    <section className="h-auto md:h-[150vh] w-full flex flex-col bg-white pt-24 md:pt-[120px]">
       {/* CONTEÚDO */}
       <div className="relative flex flex-col items-center mb-8 md:mb-12 justify-center px-4">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-5 select-none">
