@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; // Adicionado useEffect
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/icones/lotus 1.svg";
@@ -7,74 +7,74 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Lógica para detectar o scroll
   useEffect(() => {
     const handleScroll = () => {
-      // Se rolar mais de 50px, ativa o estado
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
+  // Links divididos para o layout centralizado
+  const leftLinks = [
     { name: "Home", path: "/" },
     { name: "Serviços", path: "/services" },
+  ];
+  const rightLinks = [
     { name: "Sobre", path: "/about" },
     { name: "Contato", path: "/contact" },
   ];
+
+  const linkStyle = `font-inet uppercase tracking-widest text-sm font-semibold transition-colors ${
+    scrolled
+      ? "text-white hover:text-secondary"
+      : "text-gray-600 hover:text-primary"
+  }`;
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 border-b ${
         scrolled
-          ? "bg-primary border-primary py-2 shadow-lg"
-          : "bg-white/90 backdrop-blur-md border-gray-100 py-0"
+          ? "bg-primary border-primary shadow-lg"
+          : "bg-white/90 backdrop-blur-md border-gray-100"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[72px] h-20 flex items-center justify-between">
-        {/* LOGO - Invertemos a cor com filter se estiver scrolled */}
-        <Link to="/" className="flex items-center gap-2">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-[72px] h-20 flex items-center justify-between md:justify-center relative">
+        {/* --- NAV ESQUERDA (Desktop) --- */}
+        <nav className="hidden md:flex items-center gap-12 absolute left-[72px]">
+          {leftLinks.map((link) => (
+            <Link key={link.name} to={link.path} className={linkStyle}>
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* --- LOGO CENTRALIZADO --- */}
+        <Link
+          to="/"
+          className="flex items-center transition-transform hover:scale-110"
+        >
           <img
             src={logo}
             alt="Logo"
-            className={`w-10 h-10 transition-all ${
+            className={`w-12 h-12 transition-all ${
               scrolled ? "brightness-0 invert" : ""
             }`}
           />
         </Link>
 
-        {/* NAV DESKTOP */}
-        <nav className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`font-inet uppercase tracking-widest text-sm font-semibold transition-colors ${
-                scrolled
-                  ? "text-white hover:text-secondary"
-                  : "text-gray-600 hover:text-primary"
-              }`}
-            >
+        {/* --- NAV DIREITA (Desktop) --- */}
+        <nav className="hidden md:flex items-center gap-12 absolute right-[72px]">
+          {rightLinks.map((link) => (
+            <Link key={link.name} to={link.path} className={linkStyle}>
               {link.name}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            className={`px-6 py-2 rounded-sm font-inet uppercase tracking-widest text-sm transition-all ${
-              scrolled
-                ? "bg-white text-primary hover:bg-gray-100"
-                : "bg-primary text-white hover:bg-opacity-90"
-            }`}
-          >
-            Agendar
-          </Link>
         </nav>
 
-        {/* BOTÃO MOBILE */}
+        {/* --- BOTÃO MOBILE (Lado Direito no Mobile) --- */}
         <button
-          className={`md:hidden transition-colors ${
+          className={`md:hidden absolute right-6 transition-colors ${
             scrolled ? "text-white" : "text-primary"
           }`}
           onClick={() => setIsOpen(!isOpen)}
@@ -83,15 +83,15 @@ export default function Header() {
         </button>
       </div>
 
-      {/* MENU MOBILE */}
+      {/* --- MENU MOBILE --- */}
       {isOpen && (
         <div
           className={`md:hidden border-b animate-in slide-in-from-top duration-300 ${
             scrolled ? "bg-primary border-white/10" : "bg-white border-gray-100"
           }`}
         >
-          <nav className="flex flex-col p-6 gap-4">
-            {navLinks.map((link) => (
+          <nav className="flex flex-col p-6 gap-6 text-center">
+            {[...leftLinks, ...rightLinks].map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
