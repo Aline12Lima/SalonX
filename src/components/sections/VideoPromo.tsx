@@ -1,4 +1,3 @@
-import { Play } from "lucide-react";
 // Importe seu vídeo corretamente
 import VideoPro from "../../assets/videos/resulthair.mp4";
 import { promoFeatures } from "../utils/promo";
@@ -21,11 +20,7 @@ export default function VideoPromo() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 mix-blend-overlay"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <button className="w-20 h-20 md:w-24 md:h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 hover:scale-110 transition-transform duration-300 group-hover:bg-white/30 cursor-pointer">
-            <Play className="fill-white text-white ml-2" size={40} />
-          </button>
-        </div>
+        <div className="absolute inset-0 flex items-center justify-center"></div>
       </div>
 
       {/* =================================================
