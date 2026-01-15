@@ -1,5 +1,7 @@
 # Beauty Salon - Excelência em Estética
 
+# resultado https://salon-x-nu.vercel.app/
+
 Este é um projeto de Landing Page premium desenvolvido para o setor de beleza e bem-estar. O foco principal do projeto foi unir um design sofisticado com conceitos avançados de Engenharia de Software, como performance crítica, acessibilidade e manutenibilidade.
 
 ## 🚀 Tecnologias e Ferramentas
