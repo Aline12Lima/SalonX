@@ -17,3 +17,26 @@
     --font-abhaya: "Abhaya Libre", serif;
     --font-imperial: "Imperial Script", cursive;
 }
+@layer utilities {
+    .animate-marquee {
+        display: flex;
+        white-space: nowrap;
+        animation: marquee 30s linear infinite;
+    }
+
+    /* Pausa a animação quando passa o mouse (opcional, fica muito bom) */
+    .animate-marquee:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        /* Move para a esquerda até acabar o conteúdo */
+        transform: translateX(-100%);
+    }
+}

@@ -22,7 +22,19 @@ export default {
         semibold: "600",
         bold: "700",
       },
+      // SUA ANIMAÇÃO ESTÁ CERTA AQUI:
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
     },
   },
-  plugins: [],
+  // REMOVI O PLUGIN QUE CAUSA ERRO SE NÃO ESTIVER INSTALADO
+  plugins: [require("tailwindcss-animate"),
+  ],
 }

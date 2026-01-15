@@ -96,7 +96,7 @@ export default function Testimonials() {
       </div>
 
       {/* Espaço extra em baixo para completar a altura total de 654px se precisar */}
-      <div className="h-[142px] bg-white w-full"></div>
+      <div className="h-[60px]  bg-white w-full"></div>
     </section>
   );
 }

@@ -55,7 +55,14 @@ export const eleganceServices = [
   {
     id: 4,
     title: "Cabelos",
-    description: "Bem-estar para o corpo e mente.",
+    description: "Tratamentos completos.",
+    details: [
+      "Alisamentos",
+      "Cortes",
+      "Hidratrações",
+      "Colorações",
+      "Mechas"
+    ],
     image: colorImg, // CORRIGIDO
     icon: iconbody,
     
