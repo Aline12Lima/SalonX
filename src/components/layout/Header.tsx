@@ -15,7 +15,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Links divididos para o layout centralizado
   const leftLinks = [
     { name: "Home", path: "/" },
     { name: "Serviços", path: "/services" },
@@ -39,9 +38,9 @@ export default function Header() {
           : "bg-white/90 backdrop-blur-md border-gray-100"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[72px] h-20 flex items-center justify-between md:justify-center">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-[72px] h-20 flex items-center justify-center relative">
         {/* --- NAV ESQUERDA (Desktop) --- */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-12 absolute left-[72px]">
           {leftLinks.map((link) => (
             <Link key={link.name} to={link.path} className={linkStyle}>
               {link.name}
@@ -49,23 +48,25 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* --- LOGO CENTRALIZADO COM ESPAÇO --- */}
-        {/* Mude mx-12 para mx-20, mx-24 ou mx-32 para aumentar o buraco entre os itens */}
+        {/* --- LOGO CENTRALIZADO (Mobile e Desktop) --- */}
+        {/* md:relative + md:left-0 + md:translate-x-0: Reseta o centro absoluto no desktop para usar o espaçamento mx-24 que você pediu.
+            absolute + left-1/2 + -translate-x-1/2: Garante centro matemático perfeito no Mobile.
+        */}
         <Link
           to="/"
-          className="flex items-center transition-transform hover:scale-110 mx-24"
+          className={`flex items-center transition-transform hover:scale-110 absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0 md:mx-24`}
         >
           <img
             src={logo}
             alt="Logo"
-            className={`w-12 h-12 transition-all ${
+            className={`w-10 h-10 md:w-12 md:h-12 transition-all ${
               scrolled ? "brightness-0 invert" : ""
             }`}
           />
         </Link>
 
         {/* --- NAV DIREITA (Desktop) --- */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-12 absolute right-[72px]">
           {rightLinks.map((link) => (
             <Link key={link.name} to={link.path} className={linkStyle}>
               {link.name}
@@ -75,7 +76,7 @@ export default function Header() {
 
         {/* --- BOTÃO MOBILE --- */}
         <button
-          className={`md:hidden absolute right-6 transition-colors ${
+          className={`md:hidden absolute right-6 transition-colors z-[110] ${
             scrolled ? "text-white" : "text-primary"
           }`}
           onClick={() => setIsOpen(!isOpen)}
@@ -84,7 +85,29 @@ export default function Header() {
         </button>
       </div>
 
-      {/* ... Menu Mobile mantido ... */}
+      {/* --- MENU MOBILE --- */}
+      {isOpen && (
+        <div
+          className={`md:hidden absolute top-full left-0 w-full border-b animate-in slide-in-from-top duration-300 shadow-2xl ${
+            scrolled ? "bg-primary border-white/10" : "bg-white border-gray-100"
+          }`}
+        >
+          <nav className="flex flex-col p-8 gap-6 text-center">
+            {[...leftLinks, ...rightLinks].map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`font-inet text-lg font-bold uppercase tracking-widest ${
+                  scrolled ? "text-white" : "text-gray-600"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
